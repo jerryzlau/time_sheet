@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import TimeSlotsIndex from './components/timeSlots_index';
+import './css/App.css';
 
 class App extends Component {  
   componentDidMount(){
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Time Sheet</h1>
+        <TimeSlotsIndex />
       </div>
     );
   }

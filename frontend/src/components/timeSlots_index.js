@@ -8,12 +8,17 @@ class TimeSlotsIndex extends Component {
   }
 
   componentDidMount(){
+    fetchTimeSlots()
+      .then(res => this.setState(res));
+  }
 
+  buildIndex(){
+    
   }
   
   render() {
     return (
-      <div>
+      <div className="time-slots-index">
         
       </div>
     );
