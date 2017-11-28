@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import * as timeSlotAPIUtil from './util/timeSlots_util';
 
 class App extends Component {  
   componentDidMount(){
