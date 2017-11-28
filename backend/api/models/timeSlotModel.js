@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var TimeSheetSchema = new Schema ({
+var TimeSlotSchema = new Schema ({
   createdOn: {
     type: Date,
     default: Date.now
@@ -18,4 +18,4 @@ var TimeSheetSchema = new Schema ({
   }
 });
 
-module.exports = mongoose.model('TimeSheetSchema', TimeSheetSchema);
+module.exports = mongoose.model('TimeSlots', TimeSlotSchema);
