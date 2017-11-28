@@ -16,6 +16,10 @@ var routes = require('./api/routes/timeSlotRoutes');
 // register routes
 routes(app);
 
+app.get('/', (req, res) => {
+  res.send('This is the root');
+});
+
 // Listen on port 5000
 app.listen(port, () => {
   console.log('Listening on PORT:', port, '...');
