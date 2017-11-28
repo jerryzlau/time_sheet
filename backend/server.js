@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
   res.send('This is the root');
 });
 
+app.use(function(req, res) {
+  res.status(404).send({ url: req.originalUrl + " not found" });
+});
+
 // Listen on port 5000
 app.listen(port, () => {
   console.log('Listening on PORT:', port, '...');
