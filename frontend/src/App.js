@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import { fetchTimeSlots } from './util/timeSlots_util';
+import * as APIs from './util/timeSlots_util';
 
 class App extends Component {
   constructor(props) {
@@ -9,24 +9,17 @@ class App extends Component {
     this.state = {};
   }
   
-
   componentDidMount(){
-    fetch('http://localhost:3001/api/timeslots')
-      .then(res => res.json())
-      .then(timeSlots => this.setState(timeSlots));
+    APIs.deleteTimeSlot("5a1de247b0f7f77cf559b3fa").then(res =>
+      console.log(res)
+    );
   }
 
   render() {
     console.log(this.state);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>App</h1>
       </div>
     );
   }
