@@ -1,9 +1,10 @@
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3001;
 var mongoose = require('mongoose');
 var TimeSlot = require('./api/models/timeSlotModel');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 // mongoose url connection 
 mongoose.Promise = global.Promise;
