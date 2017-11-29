@@ -7,8 +7,7 @@ var TimeSlotSchema = new Schema ({
     default: Date.now
   },
   checkIn: {
-    type: Date,
-    default: Date.now
+    type: Date
   },
   checkOut: {
     type: Date

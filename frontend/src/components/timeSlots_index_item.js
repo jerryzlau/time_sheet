@@ -4,6 +4,8 @@ class TimeSlotsIndexItem extends Component {
   render() {
     const { comment } = this.props.timeSlot;
 
+    console.log(new Date(this.props.timeSlot.date).getTimezoneOffset());
+
     const date = new Date(this.props.timeSlot.date)
       .toLocaleDateString();
 
