@@ -2,10 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TimeSlotSchema = new Schema ({
-  createdOn: {
-    type: Date,
-    default: Date.now
-  },
   checkIn: {
     type: Date,
     default: Date.now
