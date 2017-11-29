@@ -4,7 +4,7 @@
   width: 100%;
   height: 70%;
   overflow: scroll;
-  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .time-slots-index-item{

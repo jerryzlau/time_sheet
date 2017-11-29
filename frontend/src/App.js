@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TimeSlotsIndex from './components/timeSlots_index';
-import TimeSlotsForm from './components/timeSlots_form';
 import './css/App.css';
 
 class App extends Component {  
@@ -12,7 +11,6 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Time Sheet</h1>
-        <TimeSlotsForm />
         <TimeSlotsIndex />
       </div>
     );

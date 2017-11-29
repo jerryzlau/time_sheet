@@ -4,8 +4,6 @@ class TimeSlotsIndexItem extends Component {
   render() {
     const { comment } = this.props.timeSlot;
 
-    console.log(this.props.timeSlot.checkIn);
-
     const date = new Date(this.props.timeSlot.date)
       .toLocaleDateString();
 
