@@ -10,7 +10,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Time Sheet</h1>
         <TimeSlotsIndex />
       </div>
     );
