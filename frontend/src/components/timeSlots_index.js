@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchTimeSlots } from '../util/timeSlots_util';
-import UpdateForm from './update_form';
+import ItemForm from './item_form';
 import CheckInForm from './checkin_form';
 import '../css/Timeslots.css';
 
@@ -25,7 +25,7 @@ class TimeSlotsIndex extends Component {
     const index = Object.keys(this.state).reverse().map(idx => {
       const timeSlot = this.state[idx];
       return (
-        <UpdateForm 
+        <ItemForm 
           updateState={this.updateState}
           timeSlot={timeSlot}
           key={idx} />

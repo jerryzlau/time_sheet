@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { updateTimeSlot, deleteTimeSlot } from '../util/timeSlots_util';
 
-class UpdateForm extends Component {  
+class ItemForm extends Component {  
   constructor(props) {
     super(props);
     let checkOut;
@@ -20,6 +20,7 @@ class UpdateForm extends Component {
     }
 
     this.state = {
+      id: this.props.timeSlot._id,
       comment: this.props.timeSlot.comment,
       date: date,
       checkIn: checkIn,
@@ -39,8 +40,11 @@ class UpdateForm extends Component {
     e.preventDefault();
     console.log(this.props);
     if(e.target.value === 'Delete'){
-      console.log(this.props.updateState);
       deleteTimeSlot(this.props.timeSlot._id)
+        .then(() => this.props.updateState());
+    }else if(e.target.value === 'Edit'){
+      console.log(this.state);
+      updateTimeSlot(this.state)
         .then(() => this.props.updateState());
     }
   }
@@ -84,4 +88,4 @@ class UpdateForm extends Component {
   }
 }
 
-export default UpdateForm;
+export default ItemForm;

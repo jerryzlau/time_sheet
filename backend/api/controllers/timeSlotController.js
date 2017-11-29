@@ -58,4 +58,5 @@ exports.delete_time_slot = (req, res) => {
       res.status(200).json({message: 'Time slot successfully deleted'});
     }
   });
+
 };
