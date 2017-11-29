@@ -39,6 +39,7 @@ class UpdateForm extends Component {
     e.preventDefault();
     console.log(this.props);
     if(e.target.value === 'Delete'){
+      console.log(this.props.updateState);
       deleteTimeSlot(this.props.timeSlot._id)
         .then(() => this.props.updateState());
     }

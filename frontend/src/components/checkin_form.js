@@ -17,8 +17,7 @@ class CheckInForm extends Component {
     };
   }
 
-  handleSubmit(e){
-    e.preventDefault();
+  handleSubmit(){
     createTimeSlot(this.state)
       .then(() => this.props.updateState())
       .then(() => this.setState({comment: ''}));

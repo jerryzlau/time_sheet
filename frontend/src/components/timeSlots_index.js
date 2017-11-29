@@ -12,10 +12,9 @@ class TimeSlotsIndex extends Component {
   }
 
   updateState(){
-    fetchTimeSlots().then(res => {
-      this.setState(res);
-    });
-    console.log('hit');
+    fetchTimeSlots()
+    .then(res => this.setState(res))
+    .then(() => console.log(this.state));
   }
 
   componentDidMount(){
