@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Time Sheet</h1>
-        <TimeSlotsIndex />
         <TimeSlotsForm />
+        <TimeSlotsIndex />
       </div>
     );
   }

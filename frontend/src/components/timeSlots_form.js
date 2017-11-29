@@ -8,33 +8,41 @@ class TimeSlotsForm extends Component {
       checkIn: '',
       comment: ''
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   update(field){
-    return e => this.setState({[field]: e.target.value});
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
   }
 
   handleSubmit(e){
     e.preventDefault();
-    createTimeSlot(this.state);
+    createTimeSlot(this.state)
+      .then(() => console.log('fired'));
   }
 
   render() {
-    const {checkIn, checkOut, comment} = this.state;
+    const {checkIn, comment} = this.state;
     return (
-      <form className="time-slot-form"
+      <form className="form time-slots-index-item"
         onSubmit={this.handleSubmit}>
-        <label>Check In: 
+        <label className="form-input">Check In: 
           <input value={checkIn} 
             onChange={this.update('checkIn')}
             type="time" />
         </label>
 
-        <label>Check In: 
-          <input value={checkIn} 
-            onChange={this.update('checkIn')}
-            type="time" />
+        <label className="form-input">Comment: 
+          <input value={comment} 
+            onChange={this.update('comment')}
+            type="textarea" />
         </label>
+
+        <input type="submit" 
+          value="Check In!"/>
       </form>
     );
   }

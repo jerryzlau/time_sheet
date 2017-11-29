@@ -21,7 +21,7 @@ export const createTimeSlot = timeSlot => (
   $.ajax({
     method: 'POST',
     url: '/api/timeslots',
-    data: timeSlot
+    data: {timeSlot}
   })
 );
 
@@ -30,7 +30,7 @@ export const updateTimeSlot = timeSlot => (
   $.ajax({
     method: 'PUT',
     url: `/api/timeslots/${timeSlot.id}`,
-    data: timeSlot
+    data: {timeSlot}
   })
 );
 

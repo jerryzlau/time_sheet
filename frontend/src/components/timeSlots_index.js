@@ -9,15 +9,18 @@ class TimeSlotsIndex extends Component {
     this.state = {};
   }
 
+  updateState(){
+    fetchTimeSlots().then(res => {
+      this.setState(res);
+    });
+  }
+
   componentDidMount(){
-    fetchTimeSlots()
-      .then(res => {
-        this.setState(res);
-      });
+    this.updateState();
   }
 
   buildIndex(){
-    return Object.keys(this.state).reverse().map(idx => {
+    const index = Object.keys(this.state).reverse().map(idx => {
       const timeSlot = this.state[idx];
       return (
         <TimeSlotsIndexItem 
@@ -25,6 +28,8 @@ class TimeSlotsIndex extends Component {
           key={idx} />
       );
     });
+
+    return index;
   }
   
   render() {
