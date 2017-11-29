@@ -26,7 +26,7 @@ class CheckInForm extends Component {
   render() {
     const {checkIn, comment} = this.state;
     return (
-      <form className="form time-slots-index-item"
+      <form className="checkin-form time-slots-index-item"
         onSubmit={this.handleSubmit}>
 
         <label>Comment: 

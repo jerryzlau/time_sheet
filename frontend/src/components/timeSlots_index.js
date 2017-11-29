@@ -13,8 +13,9 @@ class TimeSlotsIndex extends Component {
 
   updateState(){
     fetchTimeSlots()
-    .then(res => this.setState(res))
-    .then(() => console.log(this.state));
+    .then(res => {
+      this.setState({timeSlot: res});
+    });
   }
 
   componentDidMount(){
@@ -22,24 +23,28 @@ class TimeSlotsIndex extends Component {
   }
 
   buildIndex(){
-    const index = Object.keys(this.state).reverse().map(idx => {
-      const timeSlot = this.state[idx];
-      return (
-        <ItemForm 
-          updateState={this.updateState}
-          timeSlot={timeSlot}
-          key={idx} />
-      );
-    });
-
-    return index;
+    if(this.state.timeSlot){
+      const index = this.state.timeSlot.reverse().map(timeSlot => {
+        return (
+          <ItemForm 
+            updateState={this.updateState}
+            timeSlot={timeSlot}
+            key={timeSlot._id} />
+        );
+      });
+  
+      return index;
+    }
   }
   
   render() {
     return (
       <div className="time-slots-index">
+      <div className="nav-bar">
+        <h1>Work Time Sheet</h1>
         <CheckInForm 
           updateState={this.updateState}/>
+      </div>
         {this.buildIndex()}
       </div>
     );

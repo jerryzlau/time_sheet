@@ -41,7 +41,7 @@ class ItemForm extends Component {
     console.log(this.props);
     if(e.target.value === 'Delete'){
       deleteTimeSlot(this.props.timeSlot._id)
-        .then(() => this.props.updateState());
+        .then(res => this.props.updateState(res));
     }else if(e.target.value === 'Edit'){
       console.log(this.state);
       updateTimeSlot(this.state)

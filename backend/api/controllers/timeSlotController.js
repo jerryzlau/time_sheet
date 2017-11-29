@@ -55,7 +55,7 @@ exports.delete_time_slot = (req, res) => {
     if(err){
       res.status(500).send('Error: Cannot delete time slot');
     }else{
-      res.status(200).json({message: 'Time slot successfully deleted'});
+      res.status(200).send(timeSlot);
     }
   });
 
