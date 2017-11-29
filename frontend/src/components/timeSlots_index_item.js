@@ -4,16 +4,16 @@ class TimeSlotsIndexItem extends Component {
   render() {
     const { comment } = this.props.timeSlot;
 
-    console.log(new Date(this.props.timeSlot.date).getTimezoneOffset());
+    console.log(this.props.timeSlot.checkIn);
 
     const date = new Date(this.props.timeSlot.date)
       .toLocaleDateString();
 
     const checkIn = new Date(this.props.timeSlot.checkIn)
-      .toTimeString();
+      .toLocaleTimeString();
 
     let checkOut = new Date(this.props.timeSlot.checkOut)
-      .toTimeString();
+      .toLocaleTimeString();
       
     if (checkOut === 'Invalid Date') checkOut = 'Not yet checked out';
 
