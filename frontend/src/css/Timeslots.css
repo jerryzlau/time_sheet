@@ -1,8 +1,17 @@
 .time-slots-index {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 70%;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .time-slots-index-item{
   border: solid 1px black;
+  display: flex;
+  flex-direction: row;
+  padding-left: 50px;
+  padding-right: 50px;
+  justify-content: space-around;
 }

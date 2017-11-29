@@ -11,10 +11,10 @@ class TimeSlotsIndexItem extends Component {
 
     return (
       <div className="time-slots-index-item">
-        <p>{createdOn}</p>
-        <p>{checkIn}</p>
-        <p>{checkOut}</p>
-        <p>{comment}</p>
+        <p>Created On: {createdOn}</p>
+        <p>Check In: {checkIn}</p>
+        <p>Check Out: {checkOut}</p>
+        <p>Comment: {comment}</p>
       </div>
     );
   }

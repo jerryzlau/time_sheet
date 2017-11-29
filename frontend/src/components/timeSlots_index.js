@@ -7,7 +7,6 @@ class TimeSlotsIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.buildIndex = this.buildIndex.bind(this);
   }
 
   componentDidMount(){
@@ -15,7 +14,6 @@ class TimeSlotsIndex extends Component {
       .then(res => {
         this.setState(res);
       });
-
   }
 
   buildIndex(){
@@ -32,7 +30,6 @@ class TimeSlotsIndex extends Component {
   render() {
     return (
       <div className="time-slots-index">
-        <h1>Time Sheet</h1>
         {this.buildIndex()}
       </div>
     );
