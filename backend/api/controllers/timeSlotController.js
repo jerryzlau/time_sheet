@@ -14,10 +14,9 @@ exports.timeslot_index = (req, res) => {
 
 // create 
 exports.create_time_slot = (req, res) => {
-  console.log(req.body, "===========");
   var timeSlot = new TimeSlot();
   timeSlot.comment = req.body.comment;
-  timeSlot.checkIn = req.body.checkIn;
+  timeSlot.checkIn = new Date().toISOString();
   timeSlot.save((err, newTimeSlot) => {
     if(err){
       res.status(500).send('Error: Cannot create time slot');

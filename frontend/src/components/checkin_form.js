@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { createTimeSlot } from '../util/timeSlots_util';
 
-class TimeSlotsForm extends Component {
+class CheckInForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkIn: '',
       comment: ''
     };
 
@@ -20,11 +19,9 @@ class TimeSlotsForm extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    // this.setState({
-    //   checkIn: new Date(`2017-11-28T${this.state.checkIn}Z`)
-    // });
-    createTimeSlot(this.state);
-    this.props.updateState();
+    createTimeSlot(this.state)
+      .then(() => this.props.updateState())
+      .then(() => this.setState({comment: ''}));
   }
 
   render() {
@@ -32,23 +29,20 @@ class TimeSlotsForm extends Component {
     return (
       <form className="form time-slots-index-item"
         onSubmit={this.handleSubmit}>
-        <label className="form-input">Check In: 
-          <input value={checkIn} 
-            onChange={this.update('checkIn')}
-            type="time" />
-        </label>
 
-        <label className="form-input">Comment: 
+        <label>Comment: 
           <input value={comment} 
+            className="form-input"
             onChange={this.update('comment')}
             type="textarea" />
         </label>
 
         <input type="submit" 
+          className="form-submit"
           value="Check In!"/>
       </form>
     );
   }
 }
 
-export default TimeSlotsForm;
+export default CheckInForm;

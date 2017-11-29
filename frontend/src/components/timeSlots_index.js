@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchTimeSlots } from '../util/timeSlots_util';
-import TimeSlotsIndexItem from './timeSlots_index_item';
-import TimeSlotsForm from './timeSlots_form';
+import UpdateForm from './update_form';
+import CheckInForm from './checkin_form';
 import '../css/Timeslots.css';
 
 class TimeSlotsIndex extends Component {
@@ -15,6 +15,7 @@ class TimeSlotsIndex extends Component {
     fetchTimeSlots().then(res => {
       this.setState(res);
     });
+    console.log('hit');
   }
 
   componentDidMount(){
@@ -25,7 +26,8 @@ class TimeSlotsIndex extends Component {
     const index = Object.keys(this.state).reverse().map(idx => {
       const timeSlot = this.state[idx];
       return (
-        <TimeSlotsIndexItem 
+        <UpdateForm 
+          updateState={this.updateState}
           timeSlot={timeSlot}
           key={idx} />
       );
@@ -37,7 +39,7 @@ class TimeSlotsIndex extends Component {
   render() {
     return (
       <div className="time-slots-index">
-        <TimeSlotsForm 
+        <CheckInForm 
           updateState={this.updateState}/>
         {this.buildIndex()}
       </div>
