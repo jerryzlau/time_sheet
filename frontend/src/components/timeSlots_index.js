@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { fetchTimeSlots } from '../util/timeSlots_util';
 import ItemForm from './item_form';
-import CheckInForm from './checkin_form';
 import ReactLoading from 'react-loading';
-import Clock from 'react-live-clock';
+import Clock from "react-live-clock";
+import CheckInForm from "./checkin_form";
 import '../css/Timeslots.css';
 
 class TimeSlotsIndex extends Component {
@@ -53,16 +53,6 @@ class TimeSlotsIndex extends Component {
           <CheckInForm updateState={this.updateState} />
         </div>
         <div className="item-index">{this.buildIndex()}</div>
-        <div className="footer">
-          <div className="footer-credit">
-            <a href="https://www.linkedin.com/in/jerryzlau/">
-              <img src="http://res.cloudinary.com/jerryzlau/image/upload/c_scale,w_30/v1508897977/square-linkedin-256_qpcm3m.png" class="icon" />
-            </a>
-            <a href="https://github.com/jerryzlau">
-              <img src="http://res.cloudinary.com/jerryzlau/image/upload/c_scale,w_30/v1508898510/github_npnfhb.png" class="icon" />
-            </a>
-          </div>
-        </div>
       </div>;
   }
 }

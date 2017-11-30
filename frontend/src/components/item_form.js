@@ -68,7 +68,6 @@ class ItemForm extends Component {
   }
   
   render() {    
-    const minDate = new Date().toISOString().slice(0,10);
     return (
       <form className="item-form">
         <div className="item-form-left">
