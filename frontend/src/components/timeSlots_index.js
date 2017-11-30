@@ -34,6 +34,8 @@ class TimeSlotsIndex extends Component {
       });
   
       return index;
+    }else{
+      console.log('object');
     }
   }
   

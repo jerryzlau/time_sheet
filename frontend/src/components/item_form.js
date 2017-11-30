@@ -19,6 +19,7 @@ class ItemForm extends Component {
   update(field){
     return e => {
       this.setState({ [field]: e.target.value });
+      console.log(this.state);
     };
   }
 
@@ -27,9 +28,22 @@ class ItemForm extends Component {
     if(time.length !== 2) return false;
     const hour = time[0];
     const min = time[1];
+    if(hour.length !== 2 || min.length !== 2) return false;
     if(isNaN(hour) || isNaN(min)) return false;
     if(hour < 0 || hour > 24) return false;
     if(min < 0 || min > 60) return false;
+    return true;
+  }
+
+  checkValidDate(d){
+    const date = d.split('/');
+    if(date.length !== 3) return false;
+    const day = date[1];
+    const month = date[0];
+    const year = date[2];
+    if(isNaN(day) || isNaN(month) || isNaN(year)) return false;
+    if(day < 1 || day > 31) return false;
+    if(month < 1 || month > 12) return false;
     return true;
   }
 
@@ -41,17 +55,20 @@ class ItemForm extends Component {
     }else if(e.target.value === 'Update'){
       const checkIn = this.state.checkIn;
       const checkOut = this.state.checkOut;
-      if(this.checkValidTime(checkIn) && this.checkValidTime(checkOut)){
+      const date = this.state.date;
+      if(this.checkValidTime(checkIn) && 
+        this.checkValidTime(checkOut) && 
+        this.checkValidDate(date)){
         updateTimeSlot(this.state)
           .then(() => this.props.updateState());
       }else{
-        alert('Invalid Input! \nTime Format is 24-hour clock');
+        alert('Invalid Input!\nTime Format is 24-hour clock, ex. 13:30\nDate Format is DD/MM/YYYY\n');
       }
     }
   }
   
   render() {    
-
+    const minDate = new Date().toISOString().slice(0,10);
     return (
       <form className="time-slots-index-item">
         <label>Created On: 
@@ -73,7 +90,7 @@ class ItemForm extends Component {
             onChange={this.update('checkOut')} />
         </label>
         <label>Comment: 
-          <input type="text"
+          <input type="textarea"
             className="update-form-input"
             value={this.state.comment}
             onChange={this.update('comment')} />
@@ -81,7 +98,7 @@ class ItemForm extends Component {
         <input type="submit" 
           onClick={this.handleSubmit}
           value="Update" />
-        <input type="submit" 
+        <input type="button" 
           onClick={this.handleSubmit}
           value="Delete" />
       </form>
