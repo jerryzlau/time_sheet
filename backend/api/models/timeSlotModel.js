@@ -11,8 +11,7 @@ var TimeSlotSchema = new Schema({
     type: String
   },
   checkOut: {
-    type: String,
-    default: "..."
+    type: String
   },
   comment: {
     type: String

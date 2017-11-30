@@ -1,5 +1,18 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Proxima N W01 Xbold',
+  'Helvetica Neue',
+  Helvetica,
+  Arial,
+  sans-serif;
+  font-size: 1.1em;
+  background-color: #F3F3F3;
 }
+
+input:focus {
+  outline: none;
+  border: 0.1px solid #63D7D9;
+}
+
+

@@ -26,19 +26,17 @@ class CheckInForm extends Component {
   render() {
     const { comment } = this.state;
     return (
-      <form className="checkin-form time-slots-index-item"
+      <form className="checkin-form"
         onSubmit={this.handleSubmit}>
-
-        <label>Comment: 
           <input value={comment} 
-            className="form-input"
+            className="checkin-input"
+            placeholder="Comment..."
             onChange={this.update('comment')}
             type="textarea" />
-        </label>
 
-        <input type="submit" 
-          className="form-submit"
-          value="Check In!"/>
+          <input type="submit" 
+            className="checkin-submit"
+            value="Check In!"/>
       </form>
     );
   }

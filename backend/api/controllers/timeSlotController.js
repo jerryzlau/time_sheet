@@ -18,11 +18,15 @@ exports.create_time_slot = (req, res) => {
   timeSlot.comment = req.body.comment;
   
   // store the hour and minutes as strings
-  const hour = new Date().getHours();
-  const min = new Date().getMinutes();
+  let hour = new Date().getHours().toString();
+  let min = new Date().getMinutes().toString();
+
+  // pad leading zeros 
+  if(hour.length === 1) hour = '0' + hour;
+  if(min.length === 1) min = '0' + min;
+  console.log(hour, '====');
   timeSlot.checkIn = `${hour}:${min}`;
   timeSlot.date = new Date().toLocaleDateString();
-  console.log(timeSlot, '=====');
 
   timeSlot.save((err, newTimeSlot) => {
     if(err){

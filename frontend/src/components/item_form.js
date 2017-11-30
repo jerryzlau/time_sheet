@@ -70,37 +70,56 @@ class ItemForm extends Component {
   render() {    
     const minDate = new Date().toISOString().slice(0,10);
     return (
-      <form className="time-slots-index-item">
-        <label>Created On: 
-          <input type="text"
-            className="update-form-input"
-            value={this.state.date}
-            onChange={this.update('date')} />
-        </label>
-        <label>Check In: 
-          <input type="text"
-            className="update-form-input"
-            value={this.state.checkIn}
-            onChange={this.update('checkIn')} />
-        </label>
-        <label>Check Out: 
-          <input type="text"
-            className="update-form-input"
-            value={this.state.checkOut}
-            onChange={this.update('checkOut')} />
-        </label>
-        <label>Comment: 
-          <input type="textarea"
-            className="update-form-input"
-            value={this.state.comment}
-            onChange={this.update('comment')} />
-        </label>
-        <input type="submit" 
-          onClick={this.handleSubmit}
-          value="Update" />
-        <input type="button" 
-          onClick={this.handleSubmit}
-          value="Delete" />
+      <form className="item-form">
+        <div className="item-form-left">
+          <div className="item-form-item">
+            <span className="item-form-item-title">
+              Check On: 
+            </span>
+            <input type="text"
+              className="item-form-input"
+              value={this.state.date}
+              onChange={this.update('date')} />
+          </div>
+          <div className="item-form-item">
+            <span className="item-form-item-title">
+              Check In: 
+            </span>
+            <input type="text"
+              className="item-form-input"
+              value={this.state.checkIn}
+              onChange={this.update('checkIn')} />
+          </div>
+          <div className="item-form-item">
+            <span className="item-form-item-title">
+              Check Out: 
+            </span>
+            <input type="text"
+              className="item-form-input"
+              placeholder="..."
+              value={this.state.checkOut}
+              onChange={this.update('checkOut')} />
+          </div>
+          <div className="item-form-item">
+            <span className="item-form-item-title">
+              Day About:
+            </span>
+            <input type="textarea"
+              className="item-form-input"
+              placeholder="..."
+              value={this.state.comment}
+              onChange={this.update('comment')} />
+          </div>
+        </div>
+
+        <div className="item-form-right">
+          <input type="submit" 
+            onClick={this.handleSubmit}
+            value="Update" />
+          <input type="button" 
+            onClick={this.handleSubmit}
+            value="Delete" />
+        </div>
       </form>
     );
   }
