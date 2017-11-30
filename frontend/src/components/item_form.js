@@ -95,17 +95,17 @@ class ItemForm extends Component {
             </span>
             <input type="text"
               className="item-form-input"
-              placeholder="..."
+              placeholder="time..."
               value={this.state.checkOut}
               onChange={this.update('checkOut')} />
           </div>
           <div className="item-form-item">
             <span className="item-form-item-title">
-              Day About:
+              Notes:
             </span>
             <input type="textarea"
               className="item-form-input"
-              placeholder="..."
+              placeholder="Comment..."
               value={this.state.comment}
               onChange={this.update('comment')} />
           </div>

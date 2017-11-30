@@ -29,7 +29,7 @@
 
 .checkin-form {
   min-width: 30%;
-  padding-top: 1.7%;
+  padding-top: 1.5%;
   padding-bottom: 1.7%;
   display: flex;
   background-color: #282828;
@@ -72,7 +72,7 @@
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 30px;
-  padding-right: 30px;
+  padding-right: 70px;
   cursor: pointer;
   font-weight: bold;
   font-size: 27px;
@@ -91,6 +91,7 @@
 .item-form-right {
   display: flex;
   flex-direction: row;
+  margin-right: 30px;
 }
 
 .item-form:hover {
@@ -154,6 +155,10 @@
   width: 80px;
   display: flex;
   justify-content: space-between;
+}
+
+.footer-credit img {
+  cursor: pointer;
 }
 
 
