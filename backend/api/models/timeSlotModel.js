@@ -4,6 +4,9 @@ var Schema = mongoose.Schema;
 console.log(new Date().toISOString());
 
 var TimeSlotSchema = new Schema({
+  date: {
+    type: String
+  },
   checkIn: {
     type: String
   },

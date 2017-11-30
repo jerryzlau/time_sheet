@@ -4,27 +4,13 @@ import { updateTimeSlot, deleteTimeSlot } from '../util/timeSlots_util';
 class ItemForm extends Component {  
   constructor(props) {
     super(props);
-    let checkOut;
-    
-    const date = new Date(this.props.timeSlot.checkIn)
-      .toLocaleDateString();
-
-    const checkIn = new Date(this.props.timeSlot.checkIn)
-      .toLocaleTimeString();
-
-    if(this.props.timeSlot.checkOut === '...'){
-      checkOut = '...';
-    }else{
-      checkOut = new Date(this.props.timeSlot.checkOut)
-        .toLocaleTimeString();
-    }
 
     this.state = {
       id: this.props.timeSlot._id,
       comment: this.props.timeSlot.comment,
-      date: date,
-      checkIn: checkIn,
-      checkOut: checkOut
+      date: this.props.timeSlot.date,
+      checkIn: this.props.timeSlot.checkIn,
+      checkOut: this.props.timeSlot.checkOut
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,16 +22,31 @@ class ItemForm extends Component {
     };
   }
 
+  checkValidTime(t){
+    const time = t.split(':');
+    if(time.length !== 2) return false;
+    const hour = time[0];
+    const min = time[1];
+    if(isNaN(hour) || isNaN(min)) return false;
+    if(hour < 0 || hour > 24) return false;
+    if(min < 0 || min > 60) return false;
+    return true;
+  }
+
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.props);
     if(e.target.value === 'Delete'){
       deleteTimeSlot(this.props.timeSlot._id)
-        .then(res => this.props.updateState(res));
-    }else if(e.target.value === 'Edit'){
-      console.log(this.state);
-      updateTimeSlot(this.state)
         .then(() => this.props.updateState());
+    }else if(e.target.value === 'Update'){
+      const checkIn = this.state.checkIn;
+      const checkOut = this.state.checkOut;
+      if(this.checkValidTime(checkIn) && this.checkValidTime(checkOut)){
+        updateTimeSlot(this.state)
+          .then(() => this.props.updateState());
+      }else{
+        alert('Invalid Input! \nTime Format is 24-hour clock');
+      }
     }
   }
   
@@ -79,7 +80,7 @@ class ItemForm extends Component {
         </label>
         <input type="submit" 
           onClick={this.handleSubmit}
-          value="Edit" />
+          value="Update" />
         <input type="submit" 
           onClick={this.handleSubmit}
           value="Delete" />

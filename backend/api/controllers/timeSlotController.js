@@ -16,7 +16,14 @@ exports.timeslot_index = (req, res) => {
 exports.create_time_slot = (req, res) => {
   var timeSlot = new TimeSlot();
   timeSlot.comment = req.body.comment;
-  timeSlot.checkIn = new Date().toISOString();
+  
+  // store the hour and minutes as strings
+  const hour = new Date().getHours();
+  const min = new Date().getMinutes();
+  timeSlot.checkIn = `${hour}:${min}`;
+  timeSlot.date = new Date().toLocaleDateString();
+  console.log(timeSlot, '=====');
+
   timeSlot.save((err, newTimeSlot) => {
     if(err){
       res.status(500).send('Error: Cannot create time slot');
