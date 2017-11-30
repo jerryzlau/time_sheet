@@ -53,7 +53,7 @@
 }
 
 .checkin-input {
-  max-height: 45px;
+  height: 45px;
   border: none;
   font-size: 25px;
   padding: 0;
