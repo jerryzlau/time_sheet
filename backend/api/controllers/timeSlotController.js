@@ -76,19 +76,19 @@ exports.seed_time_sheet = (req, res) => {
   const seeds = [{
   "commit": "095ee7d7f1fa288329463c09f0e9caac32a5a602",
   "author": "Jerry Lau <jerryzlau@gmail.com>",
-  "date": "Fri Dec 1 10:35:52 2017 -0800",
+  "date": "Thu Dec 1 10:35:52 2017 -0800",
   "message": "Get-reviews-from-hiring-manager"
   },
   {
   "commit": "095ee7d7f1fa288329463c09f0e9caac32a5a602",
   "author": "Jerry Lau <jerryzlau@gmail.com>",
-  "date": "Fri Dec 1 10:51:52 2017 -0800",
+  "date": "Thu Dec 1 10:51:52 2017 -0800",
   "message": "updated-title-and-favicon"
   },
   {
   "commit": "9da9c7ae44a25979e12b9d5285ca75b4f0289eba",
   "author": "Jerry Lau <jerryzlau@gmail.com>",
-  "date": "Fri Dec 1 10:47:36 2017 -0800",
+  "date": "Thu Dec 1 10:47:36 2017 -0800",
   "message": "update-readme.md"
   },
   {
@@ -336,11 +336,16 @@ exports.seed_time_sheet = (req, res) => {
   // start with the first one
   let checkIn = '16:12';
   seeds.forEach((seed, idx) => {
+    let checkOut;
     if(idx !== 0){
       checkIn = seeds[idx - 1].date.slice(11, 16);
     }
     const date = new Date(seed.date).toLocaleDateString();
-    const checkOut = seed.date.slice(11, 16);
+    if(idx === 0){
+      checkOut = '';
+    }else{
+      checkOut = seed.date.slice(11, 16);
+    }
     const comment = seed.message.split('-').join(' ');
     const deliver = {
       checkIn,
