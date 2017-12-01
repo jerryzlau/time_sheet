@@ -74,6 +74,18 @@ exports.delete_time_slot = (req, res) => {
 exports.seed_time_sheet = (req, res) => {
   // create time slots 
   const seeds = [{
+  "commit": "739c18e0f5b0d70d599f67a038915541e70bad5a",
+  "author": "Jerry Lau <jerryzlau@gmail.com>",
+  "date": "Thu Nov 30 21:00:44 2017 -0800",
+  "message": "added-notes-pop-out-on-hover"
+  },
+  {
+  "commit": "8e9a1795f150cb3a4e54c54064a2c48b8208400a",
+  "author": "Jerry Lau <jerryzlau@gmail.com>",
+  "date": "Thu Nov 30 20:21:35 2017 -0800",
+  "message": "wrote-script-to-jsonify-git-log-as-seed"
+  },
+  {
     "commit": "ea29d1555936074f74ca27e041112850054e8151",
     "author": "Jerry Lau <jerryzlau@gmail.com>",
     "date": "Thu Nov 30 17:50:56 2017 -0800",
