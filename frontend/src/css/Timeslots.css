@@ -28,7 +28,7 @@
 }
 
 .checkin-form {
-  min-width: 30%;
+  min-width: 25%;
   padding-top: 1.5%;
   padding-bottom: 1.7%;
   display: flex;
@@ -119,6 +119,8 @@
 
 .notes {
   font-size: 15px;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
   transition: 0.6s;
 }
 
@@ -126,6 +128,8 @@
   z-index: 1;
   width: 180px;
   height: 100px;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
   transition: 0.6s;
 }
 
