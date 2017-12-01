@@ -4,6 +4,12 @@ Time Sheet is a simple tool to help user keep track of their work.
 
 ![landing](https://github.com/jerryzlau/time_sheet/blob/master/docs/landing.png)
 
+## Stack 
+* Frontend: ReactJS
+
+* Backend: NodeJS API Server with express
+
+* Database: MongoDB
 
 ## Installation Instructions 
 1. Please have Node and npm installed, other dependencies will be installed by package.json
@@ -28,13 +34,6 @@ localhost:3001/api/timeslotsSeed
 localhost:3000
 ```
 
-## Stack 
-* Frontend: ReactJS
-
-* Backend: NodeJS API Server with express
-
-* Database: MongoDB
-
 ## Usage
 
 ### 1. Check In
@@ -48,5 +47,35 @@ Check In creates an entry on the timesheet that requires check out
 ### 3. Check Out 
 Check Out button will automatically check out at current time, user can also update info manually by changing the text
 ![checked](https://github.com/jerryzlau/time_sheet/blob/master/docs/checked.png)
+
+## API Endpoints 
+```javascript
+// index, create 
+app.route('/api/timeslots')
+  .get(timeSlotController.timeslot_index)
+  .post(timeSlotController.create_time_slot);
+
+// show, update, delete
+app.route('/api/timeslots/:timeSlotId')
+  .get(timeSlotController.find_time_slot)
+  .put(timeSlotController.update_time_slot)
+  .delete(timeSlotController.delete_time_slot);
+
+//seed route 
+app.route('/api/timeslotsSeed')
+  .get(timeSlotController.seed_time_sheet);
+```
+
+## Seeding 
+I decided to use my own git log to seed the database so I wrote a script to do so.
+```sh
+#!/usr/bin/env bash
+
+git log \
+    --pretty=format:'{%n  "commit": "%H",%n  "author": "%aN <%aE>",%n  "date": "%ad",%n  "message": "%f"%n},' \
+    $@ | \
+    perl -pe 'BEGIN{print "["}; END{print "]\n"}' | \
+    perl -pe 's/},]/}]/'
+```
 
 
