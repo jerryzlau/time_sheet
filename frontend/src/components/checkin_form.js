@@ -29,11 +29,11 @@ class CheckInForm extends Component {
     return (
       <form className="checkin-form"
         onSubmit={this.handleSubmit}>
-          <input value={comment} 
-            className="checkin-input"
-            placeholder="Comment..."
+          <textarea value={comment} 
+            className="notes checkin-input"
+            placeholder="Notes..."
             onChange={this.update('comment')}
-            type="textarea" />
+             />
 
           <input type="submit" 
             className="checkin-submit"

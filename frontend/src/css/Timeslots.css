@@ -55,14 +55,19 @@
 .checkin-input {
   height: 45px;
   border: none;
+  width: 180px;
   font-size: 25px;
   padding: 0;
   padding-left: 3px;
 }
 
+.checkin-input::placeholder {
+  font-size: 1.6em;
+}
+
 .item-index {
   margin: 50px;
-  height: 600px;
+  height: 71vh;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -109,6 +114,16 @@
   font-size: 20px;
   width: 130px;
   border: none;
+}
+
+.notes {
+  font-size: 15px;
+}
+
+.notes:hover {
+  z-index: 1;
+  width: 180px;
+  height: 200px;
 }
 
 .item-form-item {

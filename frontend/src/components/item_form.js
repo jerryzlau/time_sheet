@@ -135,8 +135,8 @@ class ItemForm extends Component {
             <span className="item-form-item-title">
               Notes:
             </span>
-            <input type="textarea"
-              className="item-form-input"
+            <textarea
+              className="notes item-form-input"
               placeholder="Comment..."
               value={this.state.comment}
               onChange={this.update('comment')} />
