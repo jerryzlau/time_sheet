@@ -27,8 +27,9 @@ cd time_sheet/frontend && npm start
 
 * Database: MongoDB
 
-## Features
+## Usage
 
 ### 1. Check In
+
 
 
