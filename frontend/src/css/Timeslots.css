@@ -4,7 +4,7 @@
   background-color: #282828;
   color: white;
   padding-left: 2%;
-  max-height: 93px;
+  max-height: 90px;
 }
 
 .nav-bar h1 {
@@ -118,12 +118,14 @@
 
 .notes {
   font-size: 15px;
+  transition: 0.6s;
 }
 
 .notes:hover {
   z-index: 1;
   width: 180px;
   height: 200px;
+  transition: 0.6s;
 }
 
 .item-form-item {
