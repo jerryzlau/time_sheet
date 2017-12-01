@@ -26,7 +26,7 @@ class TimeSlotsIndex extends Component {
 
   buildIndex(){
     if(this.state.timeSlot){
-      const index = this.state.timeSlot.reverse().map(timeSlot => {
+      const index = this.state.timeSlot.map(timeSlot => {
         return (
           <ItemForm 
             updateState={this.updateState}

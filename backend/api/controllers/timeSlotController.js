@@ -74,6 +74,24 @@ exports.delete_time_slot = (req, res) => {
 exports.seed_time_sheet = (req, res) => {
   // create time slots 
   const seeds = [{
+  "commit": "095ee7d7f1fa288329463c09f0e9caac32a5a602",
+  "author": "Jerry Lau <jerryzlau@gmail.com>",
+  "date": "Fri Dec 1 10:35:52 2017 -0800",
+  "message": "Get-reviews-from-hiring-manager"
+  },
+  {
+  "commit": "095ee7d7f1fa288329463c09f0e9caac32a5a602",
+  "author": "Jerry Lau <jerryzlau@gmail.com>",
+  "date": "Fri Dec 1 10:51:52 2017 -0800",
+  "message": "updated-title-and-favicon"
+  },
+  {
+  "commit": "9da9c7ae44a25979e12b9d5285ca75b4f0289eba",
+  "author": "Jerry Lau <jerryzlau@gmail.com>",
+  "date": "Fri Dec 1 10:47:36 2017 -0800",
+  "message": "update-readme.md"
+  },
+  {
   "commit": "739c18e0f5b0d70d599f67a038915541e70bad5a",
   "author": "Jerry Lau <jerryzlau@gmail.com>",
   "date": "Thu Nov 30 21:00:44 2017 -0800",
@@ -317,9 +335,9 @@ exports.seed_time_sheet = (req, res) => {
   // use timeSlot to insert/save 
   // start with the first one
   let checkIn = '16:12';
-  seeds.reverse().forEach((seed, idx) => {
+  seeds.forEach((seed, idx) => {
     if(idx !== 0){
-      checkIn = seeds.reverse()[idx - 1].date.slice(11, 16);
+      checkIn = seeds[idx - 1].date.slice(11, 16);
     }
     const date = new Date(seed.date).toLocaleDateString();
     const checkOut = seed.date.slice(11, 16);
