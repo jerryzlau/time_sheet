@@ -120,8 +120,30 @@
   min-width: 120px;
 }
 
-.item-form-right input {
+.item-form-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-form-right-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.item-form-right-top input {
   background-color: #63D7D9;
+  height: 39px;
+  font-size: 20px;
+  color: rgb(252, 252, 252);
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkout-submit {
+  background-color: #fa2929;
   height: 39px;
   font-size: 20px;
   color: rgb(252, 252, 252);
@@ -139,6 +161,7 @@
   transition: 0.5s;
 }
 
+
 .footer {
   position:absolute;
   background-color: #282828;
@@ -152,7 +175,7 @@
 .footer-credit {
   margin-top: 15px;
   margin-right: 50px;
-  width: 80px;
+  width: 120px;
   display: flex;
   justify-content: space-between;
 }

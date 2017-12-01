@@ -14,12 +14,13 @@ class ItemForm extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCheckOut = this.handleCheckOut.bind(this);
   }
 
   update(field){
     return e => {
       this.setState({ [field]: e.target.value });
-      console.log(this.state);
+      // console.log(this.state);
     };
   }
 
@@ -47,6 +48,26 @@ class ItemForm extends Component {
     return true;
   }
 
+  handleCheckOut(e){
+    e.preventDefault();
+    let hour = new Date().getHours().toString();
+    let min = new Date().getMinutes().toString();
+
+    // pad leading zeros
+    if (hour.length === 1) hour = "0" + hour;
+    if (min.length === 1) min = "0" + min;
+    const time = `${hour}:${min}`;
+
+    this.setState({ checkOut: time });
+
+    const deliver = {
+      id: this.state.id,
+      checkOut: time
+    };
+
+    updateTimeSlot(deliver);
+  }
+
   handleSubmit(e){
     e.preventDefault();
     if(e.target.value === 'Delete'){
@@ -54,13 +75,15 @@ class ItemForm extends Component {
         .then(() => this.props.updateState());
     }else if(e.target.value === 'Update'){
       const checkIn = this.state.checkIn;
-      const checkOut = this.state.checkOut;
       const date = this.state.date;
+      const checkOut = this.state.checkOut;
       if(this.checkValidTime(checkIn) && 
         this.checkValidTime(checkOut) && 
         this.checkValidDate(date)){
         updateTimeSlot(this.state)
           .then(() => this.props.updateState());
+      }else if(e.target.value === 'CheckOut'){
+        console.log('here~~');
       }else{
         alert('Invalid Input!\nTime Format is 24-hour clock, ex. 13:30\nDate Format is DD/MM/YYYY\n');
       }
@@ -68,12 +91,21 @@ class ItemForm extends Component {
   }
   
   render() {    
+
+    let checkedColor = "#fa2929"; 
+    let checkedText = 'Check Out!';
+
+    if(this.state.checkOut){
+      checkedColor = '#51f23c';
+      checkedText = 'Done!';
+    } 
+
     return (
       <form className="item-form">
         <div className="item-form-left">
           <div className="item-form-item">
             <span className="item-form-item-title">
-              Check On: 
+              Date <br />On: 
             </span>
             <input type="text"
               className="item-form-input"
@@ -82,7 +114,7 @@ class ItemForm extends Component {
           </div>
           <div className="item-form-item">
             <span className="item-form-item-title">
-              Check In: 
+              Clock <br/> In: 
             </span>
             <input type="text"
               className="item-form-input"
@@ -91,7 +123,7 @@ class ItemForm extends Component {
           </div>
           <div className="item-form-item">
             <span className="item-form-item-title">
-              Check Out: 
+              Clock <br/> Out: 
             </span>
             <input type="text"
               className="item-form-input"
@@ -112,12 +144,19 @@ class ItemForm extends Component {
         </div>
 
         <div className="item-form-right">
-          <input type="submit" 
-            onClick={this.handleSubmit}
-            value="Update" />
-          <input type="button" 
-            onClick={this.handleSubmit}
-            value="Delete" />
+          <div className="item-form-right-top">
+            <input type="submit" 
+              onClick={this.handleSubmit}
+              value="Update" />
+            <input type="button" 
+              onClick={this.handleSubmit}
+              value="Delete" />
+          </div>
+          <input type="button"
+            className="checkout-submit" 
+            onClick={this.handleCheckOut}
+            style={{backgroundColor: checkedColor}}
+            value={checkedText} />
         </div>
       </form>
     );

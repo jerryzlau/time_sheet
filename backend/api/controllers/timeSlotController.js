@@ -24,7 +24,6 @@ exports.create_time_slot = (req, res) => {
   // pad leading zeros 
   if(hour.length === 1) hour = '0' + hour;
   if(min.length === 1) min = '0' + min;
-  console.log(hour, '====');
   timeSlot.checkIn = `${hour}:${min}`;
   timeSlot.date = new Date().toLocaleDateString();
 
