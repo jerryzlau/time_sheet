@@ -38,7 +38,12 @@ class TimeSlotsIndex extends Component {
       return index;
     }else{
       return(
-        <ReactLoading color={'#000000'} />
+        <ReactLoading 
+          style={{width: '200px', 
+            marginLeft: '65vh',
+            marginTop: '15vh'}}
+            type="spinningBubbles"
+          color={'#000000'} />      
       );
     }
   }
