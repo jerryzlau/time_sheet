@@ -14,5 +14,5 @@ module.exports = function(app){
 
   //seed route 
   app.route('/api/timeslotsSeed')
-    .get(timeSlotController.seed_time_sheet)
+    .get(timeSlotController.seed_time_sheet);
 };

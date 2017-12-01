@@ -20,7 +20,6 @@ class ItemForm extends Component {
   update(field){
     return e => {
       this.setState({ [field]: e.target.value });
-      // console.log(this.state);
     };
   }
 
