@@ -2,6 +2,8 @@
 
 Time Sheet is a simple tool to help user keep track of their work.
 
+![landing](https://github.com/jerryzlau/time_sheet/blob/master/docs/landing.png)
+
 
 ## Installation Instructions 
 1. Please have Node and npm installed, other dependencies will be installed by package.json
@@ -17,8 +19,8 @@ cd time_sheet/backend && npm start
 ```
 cd time_sheet/frontend && npm start 
 ```
-4. On the browser, visit <localhost:3001/api/timeslotsSeed> to seed the database for demo
-5. Then visit <localhost:3000> and the app will be up and running for use
+4. On the browser, visit [localhost:3001/api/timeslotsSeed](localhost:3001/api/timeslotsSeed) to seed the database for demo
+5. Then visit [localhost:3000](localhost:3000) and the app will be up and running
 
 ## Stack 
 * Frontend: ReactJS
@@ -30,6 +32,15 @@ cd time_sheet/frontend && npm start
 ## Usage
 
 ### 1. Check In
+Check In button will automatically check in with specified notes at current time displayed on the clock
+![checkin](https://github.com/jerryzlau/time_sheet/blob/master/docs/checkin.png)
 
+### 2. Entry 
+Check In creates an entry on the timesheet that requires check out
+![unchecked](https://github.com/jerryzlau/time_sheet/blob/master/docs/unchecked.png)
+
+### 3. Check Out 
+Check Out button will automatically check out at current time, user can also update info manually by changing the text
+![checked](https://github.com/jerryzlau/time_sheet/blob/master/docs/checked.png)
 
 
