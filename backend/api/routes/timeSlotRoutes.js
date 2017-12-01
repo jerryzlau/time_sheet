@@ -11,4 +11,8 @@ module.exports = function(app){
     .get(timeSlotController.find_time_slot)
     .put(timeSlotController.update_time_slot)
     .delete(timeSlotController.delete_time_slot);
+
+  //seed route 
+  app.route('/api/timeslotsSeed')
+    .get(timeSlotController.seed_time_sheet)
 };

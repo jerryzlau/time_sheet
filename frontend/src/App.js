@@ -4,7 +4,7 @@ import './css/App.css';
 
 class App extends Component {  
   render() {
-    return <div className="main">
+    return <div className="app">
         <TimeSlotsIndex />
         <div className="footer">
           <div className="footer-credit">
