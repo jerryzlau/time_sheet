@@ -25,6 +25,7 @@ class ItemForm extends Component {
   }
 
   checkValidTime(t){
+    if (!t) return false;
     const time = t.split(':');
     if(time.length !== 2) return false;
     const hour = time[0];
@@ -50,6 +51,7 @@ class ItemForm extends Component {
 
   handleCheckOut(e){
     e.preventDefault();
+    if(e.target.value === 'Done!') return;
     let hour = new Date().getHours().toString();
     let min = new Date().getMinutes().toString();
 
@@ -70,6 +72,7 @@ class ItemForm extends Component {
 
   handleSubmit(e){
     e.preventDefault();
+    const tag = e.target;
     if(e.target.value === 'Delete'){
       deleteTimeSlot(this.props.timeSlot._id)
         .then(() => this.props.updateState());
@@ -81,11 +84,21 @@ class ItemForm extends Component {
         this.checkValidTime(checkOut) && 
         this.checkValidDate(date)){
         updateTimeSlot(this.state)
-          .then(() => this.props.updateState());
-      }else if(e.target.value === 'CheckOut'){
-        console.log('here~~');
+          .then(() => this.props.updateState())
+          .then(() => {
+            tag.style.background = '#51f23c';
+            setTimeout(() => {
+              tag.style.background = "#63D7D9";
+            }, 1000);
+          });
       }else{
-        alert('Invalid Input!\nTime Format is 24-hour clock, ex. 13:30\nDate Format is DD/MM/YYYY\n');
+        tag.style.background = "red";
+        setTimeout(() => {
+          tag.style.background = "#63D7D9";
+        }, 1000);
+        setTimeout(() => {
+          alert('Invalid Input!\nTime Format is 24-hour clock, ex. 13:30\nDate Format is DD/MM/YYYY\n');
+        }, 1500);
       }
     }
   }
@@ -105,7 +118,7 @@ class ItemForm extends Component {
         <div className="item-form-left">
           <div className="item-form-item">
             <span className="item-form-item-title">
-              Date <br />On: 
+              Date:
             </span>
             <input type="text"
               className="item-form-input"
@@ -137,7 +150,7 @@ class ItemForm extends Component {
             </span>
             <textarea
               className="notes item-form-input"
-              placeholder="Comment..."
+              placeholder="Notes..."
               value={this.state.comment}
               onChange={this.update('comment')} />
           </div>
