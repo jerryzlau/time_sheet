@@ -26,12 +26,15 @@ class TimeSlotsIndex extends Component {
 
   buildIndex(){
     if(this.state.timeSlot){
-      const index = this.state.timeSlot.map(timeSlot => {
+      let delay = 1;
+      const index = this.state.timeSlot.map((timeSlot, idx) => {
+        delay += 0.1;
         return (
           <ItemForm 
+            key={idx}
+            delay={delay}
             updateState={this.updateState}
-            timeSlot={timeSlot}
-            key={timeSlot._id} />
+            timeSlot={timeSlot} />
         );
       });
   

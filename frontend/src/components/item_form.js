@@ -153,8 +153,11 @@ class ItemForm extends Component {
       display: this.state.successShow
     };
 
+    console.log(this.props.delay, '======');
+
     return (
-      <form className="item-form">
+      <form style={{animation: `${this.props.delay}s ease-out 0s 1 slideInFromLeft`}}
+      className="item-form">
         <div style={{position: 'relative', marginTop: '5px' }}>
           <span style={errorStyle}>Invalid Input! Time Format is 24-hour clock: HH:MM Date Format: DD/MM/YYYY</span>
         </div>
