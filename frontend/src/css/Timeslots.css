@@ -212,17 +212,5 @@
   cursor: pointer;
 }
 
-.error {
-  font-size: 15px;
-  font-family: serif;
-  font-weight: lighter;
-  left: 6.5%;
-  z-index: 2;
-  white-space: nowrap;
-  clear: both;
-  position: fixed;
-  top: 145px;
-  color: red;
-}
 
 

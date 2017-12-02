@@ -12,7 +12,8 @@ class ItemForm extends Component {
       date: this.props.timeSlot.date,
       checkIn: this.props.timeSlot.checkIn,
       checkOut: this.props.timeSlot.checkOut,
-      errorShow: 'none'
+      errorShow: 'none',
+      successShow: 'none'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,6 +22,7 @@ class ItemForm extends Component {
 
   update(field){
     return e => {
+      // dismisses error when input is detected
       this.setState({ errorShow: "none" });
       this.setState({ [field]: e.target.value });
     };
@@ -69,6 +71,7 @@ class ItemForm extends Component {
       checkOut: time
     };
 
+    // update the backend 
     updateTimeSlot(deliver);
   }
 
@@ -89,11 +92,14 @@ class ItemForm extends Component {
           .then(() => this.props.updateState())
           .then(() => {
             tag.style.background = '#51f23c';
+            this.setState({successShow: 'block'});
             setTimeout(() => {
               tag.style.background = "#63D7D9";
+              this.setState({successShow: 'none'});
             }, 1000);
           });
       }else{
+        // show error message when input is wrong
         this.setState({errorShow: 'block'});
         tag.style.background = "red";
         setTimeout(() => {
@@ -118,22 +124,31 @@ class ItemForm extends Component {
       checkedText = 'Done!';
     } 
 
+    // styling for error message 
     const errorStyle = {
       fontSize: '15px',
-      fontFamily: 'serif',
-      fontWeight: 'lighter',
-      float: 'left',
-      zIndex: '10',
       whiteSpace: 'nowrap',
       position: 'absolute',
       color: 'red',
       display: this.state.errorShow
     };
 
+    // styling for success message
+    const successStyle = {
+      fontSize: '15px',
+      whiteSpace: 'nowrap',
+      position: 'absolute',
+      color: 'green',
+      display: this.state.successShow
+    };
+
     return (
       <form className="item-form">
         <div style={{position: 'relative', marginTop: '5px' }}>
           <span style={errorStyle}>Invalid Input! Time Format is 24-hour clock: HH:MM Date Format: DD/MM/YYYY</span>
+        </div>
+        <div style={{position: 'relative', marginTop: '5px' }}>
+          <span style={successStyle}>Update Success!</span>
         </div>
         <div className="item-form-left">
           <div className="item-form-item">
