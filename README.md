@@ -25,11 +25,7 @@ cd time_sheet/backend && npm start
 ```
 cd time_sheet/frontend && npm start 
 ```
-4. On the browser, visit the following link to seed the database for demo
-```
-localhost:3001/api/timeslotsSeed
-```
-5. Then visit the following link to run the app
+4. Visit the following link to play with the app
 ```
 localhost:3000
 ```
