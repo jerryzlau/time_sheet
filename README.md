@@ -17,11 +17,11 @@ Time Sheet is a simple tool to help user keep track of their work.
 ```
 git clone https://github.com/jerryzlau/time_sheet.git time_sheet
 ```
-2. Run NodeJS API back backend Server
+2. Run NodeJS API back backend Server (keep this running)
 ``` 
 cd time_sheet/backend && npm start 
 ```
-3. Run React with proxy server
+3. On a new terminal same directory /timesheet, Run React with proxy server
 ```
 cd time_sheet/frontend && npm start 
 ```
