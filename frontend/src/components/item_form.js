@@ -24,6 +24,7 @@ class ItemForm extends Component {
     return e => {
       // dismisses error when input is detected
       this.setState({ errorShow: "none" });
+      // update inputs
       this.setState({ [field]: e.target.value });
     };
   }
@@ -91,18 +92,26 @@ class ItemForm extends Component {
         updateTimeSlot(this.state)
           .then(() => this.props.updateState())
           .then(() => {
+            // set update button green to signify success
             tag.style.background = '#51f23c';
+            // also display update success text 
             this.setState({successShow: 'block'});
+
+            // 1 second later revert to original state for animation
             setTimeout(() => {
+              // set update button back to normal 
               tag.style.background = "#63D7D9";
+              // hide update success text 
               this.setState({successShow: 'none'});
             }, 1000);
           });
       }else{
         // show error message when input is wrong
         this.setState({errorShow: 'block'});
+        // set update button to red to signify failure 
         tag.style.background = "red";
         setTimeout(() => {
+          // set update button back to normal 
           tag.style.background = "#63D7D9";
         }, 1000);
       }
@@ -116,9 +125,11 @@ class ItemForm extends Component {
   
   render() {    
 
+    // checkOut button text if not checked out
     let checkedColor = "#fa2929"; 
     let checkedText = 'Check Out!';
 
+    // checkOut button text if checked
     if(this.state.checkOut){
       checkedColor = '#51f23c';
       checkedText = 'Done!';
