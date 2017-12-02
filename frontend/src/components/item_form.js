@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import { updateTimeSlot, deleteTimeSlot } from '../util/timeSlots_util';
 
 class ItemForm extends Component {  
@@ -10,7 +11,8 @@ class ItemForm extends Component {
       comment: this.props.timeSlot.comment,
       date: this.props.timeSlot.date,
       checkIn: this.props.timeSlot.checkIn,
-      checkOut: this.props.timeSlot.checkOut
+      checkOut: this.props.timeSlot.checkOut,
+      errorShow: 'none'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,6 +21,7 @@ class ItemForm extends Component {
 
   update(field){
     return e => {
+      this.setState({ errorShow: "none" });
       this.setState({ [field]: e.target.value });
     };
   }
@@ -91,15 +94,18 @@ class ItemForm extends Component {
             }, 1000);
           });
       }else{
+        this.setState({errorShow: 'block'});
         tag.style.background = "red";
         setTimeout(() => {
           tag.style.background = "#63D7D9";
         }, 1000);
-        setTimeout(() => {
-          alert('Invalid Input!\nTime Format is 24-hour clock, ex. 13:30\nDate Format is DD/MM/YYYY\n');
-        }, 1500);
       }
     }
+  }
+
+  componentDidMount(){
+    const topOffSet = ReactDOM.findDOMNode(this).getBoundingClientRect().top;
+    this.setState({topOffSet: topOffSet});
   }
   
   render() {    
@@ -112,8 +118,23 @@ class ItemForm extends Component {
       checkedText = 'Done!';
     } 
 
+    const errorStyle = {
+      fontSize: '15px',
+      fontFamily: 'serif',
+      fontWeight: 'lighter',
+      float: 'left',
+      zIndex: '10',
+      whiteSpace: 'nowrap',
+      position: 'absolute',
+      color: 'red',
+      display: this.state.errorShow
+    };
+
     return (
       <form className="item-form">
+        <div style={{position: 'relative', marginTop: '5px' }}>
+          <span style={errorStyle}>Invalid Input! Time Format is 24-hour clock: HH:MM Date Format: DD/MM/YYYY</span>
+        </div>
         <div className="item-form-left">
           <div className="item-form-item">
             <span className="item-form-item-title">

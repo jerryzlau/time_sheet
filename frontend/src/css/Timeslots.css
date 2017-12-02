@@ -75,7 +75,7 @@
 
 .item-form {
   border-top: 2px solid #F3A24A;
-  padding-top: 30px;
+  /* padding-top: 30px; */
   padding-bottom: 30px;
   padding-left: 30px;
   padding-right: 70px;
@@ -92,10 +92,12 @@
   flex-direction: row;
   justify-content: space-around;
   box-sizing: border-box;
+  padding-top: 30px;
 }
 
 .item-form-right {
   display: flex;
+  padding-top: 30px;
   flex-direction: row;
   margin-right: 30px;
 }
@@ -145,6 +147,7 @@
 .item-form-right {
   display: flex;
   flex-direction: column;
+  padding-top: 30
 }
 
 .item-form-right-top {
@@ -207,6 +210,19 @@
 
 .footer-credit img {
   cursor: pointer;
+}
+
+.error {
+  font-size: 15px;
+  font-family: serif;
+  font-weight: lighter;
+  left: 6.5%;
+  z-index: 2;
+  white-space: nowrap;
+  clear: both;
+  position: fixed;
+  top: 145px;
+  color: red;
 }
 
 
