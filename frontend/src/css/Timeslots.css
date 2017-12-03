@@ -92,7 +92,7 @@
   font-size: 27px;
   display: flex;
   justify-content: space-between;
-  animation: 1.5s ease-out 0s 1 fadeIn;
+  animation: 1.3s ease-out 0s 1 fadeIn;
 }
 
 .item-form-left{
