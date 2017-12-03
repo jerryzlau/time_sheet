@@ -26,13 +26,10 @@ class TimeSlotsIndex extends Component {
 
   buildIndex(){
     if(this.state.timeSlot){
-      let delay = 1;
-      const index = this.state.timeSlot.map((timeSlot, idx) => {
-        delay += 0.1;
+      const index = this.state.timeSlot.reverse().map((timeSlot, idx) => {
         return (
           <ItemForm 
-            key={idx}
-            delay={delay}
+            key={timeSlot._id}
             updateState={this.updateState}
             timeSlot={timeSlot} />
         );
