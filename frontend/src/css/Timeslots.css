@@ -73,12 +73,12 @@
   overflow-x: hidden;
 }
 
-@keyframes slideInFromLeft {
+@keyframes fadeIn {
   0% {
-    transform: translateX(-100%);
+    opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -92,7 +92,7 @@
   font-size: 27px;
   display: flex;
   justify-content: space-between;
-  /* animation: 1.5s ease-out 0s 1 slideInFromLeft; */
+  animation: 1.5s ease-out 0s 1 fadeIn;
 }
 
 .item-form-left{
