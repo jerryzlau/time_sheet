@@ -63,7 +63,7 @@ app.route('/api/timeslotsSeed')
 ```
 
 ## Seeding 
-I decided to use my own git log to seed the database so I wrote a script to do so. I printed out git log as string of an array of objects and grabbed the first 4 as seed data.
+I decided to use my own git log to seed the database so I used a script to do so. I printed out git log as string of an array of objects and grabbed the first 4 as seed data.
 ```sh
 #!/usr/bin/env bash
 
